@@ -1,17 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+
 
 function Navbar() {
   return (
-    <div class='w-full bg-[#D32F2F] flex justify-between p-4' >
-        <div>
-            <div class="bg-white-900"> <h2 class='text-white'>BloodLine</h2></div>
-            
-        </div>
-        <div>
-        <div class="bg-white-900"> <h2 class='text-white'>RightSideDemo</h2></div>
-        </div>
-    </div>
-  )
+    <nav class="w-full bg-[#D32F2F] flex justify-between p-4">
+    <Link to='/'>Home</Link>
+    <Link to='/about'>About</Link>
+    <Link to='/donateblood'>DonateBlood</Link>
+    </nav>
+  );
 }
 
 export default Navbar;
