@@ -22,7 +22,7 @@ function Home() {
           <Button onClick={()=>{
             console.log("Opening modal...");
             setIsOpen(true); }} > Donate Now </Button >
-          <DonateModal open={isOpen} onClose={() => setIsOpen(false)}></DonateModal>
+          <DonateModal open={isOpen} onClose={() => setIsOpen(false)}>  </DonateModal>
 
         </div>
         <hr />

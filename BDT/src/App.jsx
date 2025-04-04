@@ -7,6 +7,7 @@ import DonateBlood from './pages/DonateBlood'
 import About from './pages/About'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
+import Appointment from './components/Appointment'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
       <Route path='/about' element={<About />}/>
       <Route path='/donateblood' element={<DonateBlood />}/>
       <Route path="*" element={<NotFound />} /> 
+      <Route path='/appointment' element={<Appointment/>} />
     </Routes>
     
     </>
