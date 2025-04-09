@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import { Route, Routes } from 'react-router-dom'
-import DonateBlood from './pages/DonateBlood'
 import About from './pages/About'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Appointment from './components/Appointment'
+import {ToastContainer} from 'react-toastify'
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,10 +20,12 @@ function App() {
     <Routes>
       <Route path='/' element={<Home />}/>
       <Route path='/about' element={<About />}/>
-      <Route path='/donateblood' element={<DonateBlood />}/>
       <Route path="*" element={<NotFound />} /> 
       <Route path='/appointment' element={<Appointment/>} />
+      <Route path='/login' element={<Login/>} />
+      <Route path='/register' element = {<Register/>} />
     </Routes>
+    <ToastContainer/>
     
     </>
   )
