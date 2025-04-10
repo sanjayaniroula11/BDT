@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
+import { signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from "./firebase";
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -7,11 +11,22 @@ function Login() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth,email,password);
+      console.log('User Logged In Successfully!!')
+    } catch (error) {
+      console.log(error.message)
+              toast.success(error.message,{
+                postition: 'bottom-center',
+              })
+    }
     setError("");
     setIsLoading(true);
-
+    navigate('/about')
     setTimeout(() => {
       if (email === "user@example.com" && password === "password123") {
         alert("Login successful!");

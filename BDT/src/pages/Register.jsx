@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { setDoc, doc } from "firebase/firestore";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Register() {
@@ -21,10 +24,23 @@ function Register() {
         await createUserWithEmailAndPassword(auth,email,password);
         const user = auth.currentUser;
         console.log(user);
+        if (user){
+          await setDoc(doc(db,"Users", user.uid),{
+            email: user.email,
+            firstname:fname,
+            lastname:lname
+          })
+        }
         console.log('The user is registered successfully');
+        toast.success('User Registered Successfully.',{
+          postition: 'top-center',
+        })
         
     }catch(error){
         console.log(error.message)
+        toast.success(error.message,{
+          postition: 'bottom-center',
+        })
     }
     setError("");
     setIsLoading(true);
