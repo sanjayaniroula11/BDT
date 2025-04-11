@@ -9,6 +9,7 @@ import Appointment from './components/Appointment'
 import {ToastContainer} from 'react-toastify'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import DonorCard from './pages/DonorCard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
       <Route path='/appointment' element={<Appointment/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element = {<Register/>} />
+      <Route path='/donorcard' element = {<DonorCard/>} />
     </Routes>
     <ToastContainer/>
     

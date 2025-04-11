@@ -6,9 +6,12 @@ import { LuMedal } from "react-icons/lu";
 import { IoMdAlert } from "react-icons/io";
 import Footer from "../components/Footer";
 import DonateModal from "../components/DonateModal";
+import { useNavigate } from "react-router-dom";
+
 function Home() {
 
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -22,7 +25,12 @@ function Home() {
           <Button onClick={()=>{
             console.log("Opening modal...");
             setIsOpen(true); }} > Donate Now </Button >
+           
           <DonateModal open={isOpen} onClose={() => setIsOpen(false)}>  </DonateModal>
+          <Button onClick={()=> {navigate('/donorcard')}
+          }>
+              Your Donor Card
+            </Button>
 
         </div>
         <hr />
